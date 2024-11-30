@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration xmlns="http://logging.apache.org/log4j/2.0/config" strict="true">
+    <Appenders>
+        <Appender type="File" name="FILE" fileName="application.log">
+            <Layout type="PatternLayout">
+                <Pattern>%d [%r] [%t] %-5p {%c} %m%n</Pattern>
+            </Layout>
+        </Appender>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="FILE" />
+        </Root>
+    </Loggers>
+</Configuration>
