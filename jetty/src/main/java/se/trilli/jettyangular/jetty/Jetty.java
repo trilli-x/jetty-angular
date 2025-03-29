@@ -2,13 +2,13 @@ package se.trilli.jettyangular.jetty;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.eclipse.jetty.cdi.CdiDecoratingListener;
-import org.eclipse.jetty.cdi.CdiServletContainerInitializer;
+import org.eclipse.jetty.ee10.cdi.CdiDecoratingListener;
+import org.eclipse.jetty.ee10.cdi.CdiServletContainerInitializer;
+import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.handler.HandlerWrapper;
 import org.eclipse.jetty.server.handler.ResourceHandler;
-import org.eclipse.jetty.servlet.ServletContextHandler;
-import org.eclipse.jetty.servlet.ServletHolder;
+import org.eclipse.jetty.ee10.servlet.ServletContextHandler;
+import org.eclipse.jetty.ee10.servlet.ServletHolder;
 import org.glassfish.jersey.servlet.ServletContainer;
 import org.jboss.weld.environment.servlet.EnhancedListener;
 import se.trilli.jettyangular.Application;
@@ -19,8 +19,7 @@ import static java.awt.Desktop.Action.BROWSE;
 import static java.awt.Desktop.getDesktop;
 import static java.awt.Desktop.isDesktopSupported;
 import static java.lang.Boolean.TRUE;
-import static java.util.Objects.requireNonNull;
-import static org.eclipse.jetty.servlet.ServletContextHandler.NO_SESSIONS;
+import static org.eclipse.jetty.ee10.servlet.ServletContextHandler.NO_SESSIONS;
 
 public class Jetty {
     private static final Logger LOGGER = LogManager.getLogger(Jetty.class);
@@ -61,14 +60,14 @@ public class Jetty {
         }
     }
 
-    private HandlerWrapper createAngularHandler() {
+    private Handler.Wrapper createAngularHandler() {
         ResourceHandler handler = new ResourceHandler();
-        handler.setResourceBase(this.getClass().getClassLoader().getResource("webapp").toExternalForm());
+        handler.setBaseResourceAsString(this.getClass().getClassLoader().getResource("webapp").toExternalForm());
 
         return handler;
     }
 
-    private HandlerWrapper createJerseyHandler() {
+    private Handler.Wrapper createJerseyHandler() {
         ServletContextHandler context = new ServletContextHandler(NO_SESSIONS);
         context.setContextPath("/");
 

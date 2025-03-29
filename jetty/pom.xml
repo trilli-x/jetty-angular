@@ -17,11 +17,11 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <jetty.version>11.0.19</jetty.version>
-        <jersey.version>3.0.11</jersey.version>
-        <weld.version>4.0.3.Final</weld.version>
+        <jetty.version>12.0.18</jetty.version>
+        <jersey.version>3.1.10</jersey.version>
+        <weld.version>5.1.5.Final</weld.version>
 
-        <log4j.version>2.20.0</log4j.version>
+        <log4j.version>2.24.3</log4j.version>
     </properties>
 
     <dependencyManagement>
@@ -46,13 +46,13 @@
     <dependencies>
         <!-- Jetty Server dependencies -->
         <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-servlet</artifactId>
+            <groupId>org.eclipse.jetty.ee10</groupId>
+            <artifactId>jetty-ee10-servlet</artifactId>
             <version>${jetty.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-cdi</artifactId>
+            <groupId>org.eclipse.jetty.ee10</groupId>
+            <artifactId>jetty-ee10-cdi</artifactId>
             <version>${jetty.version}</version>
         </dependency>
 

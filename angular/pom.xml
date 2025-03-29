@@ -14,10 +14,10 @@
     <name>Angular Example</name>
 
     <properties>
-        <node.version>v20.11.1</node.version>
-        <npm.version>10.2.4</npm.version>
+        <node.version>v23.10.0</node.version>
+        <npm.version>10.9.2</npm.version>
 
-        <angular.maven.plugin.version>1.15.0</angular.maven.plugin.version>
+        <angular.maven.plugin.version>1.15.1</angular.maven.plugin.version>
     </properties>
 
     <build>
